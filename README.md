@@ -3,8 +3,6 @@
 # 🌌 The Ultimate Linux Compendium 🌌
 
 [![GitHub stars](https://img.shields.io/github/stars/TechForAll1373/The-Ultimate-Linux-Compendium?style=for-the-badge&logo=github&logoColor=white&label=Stars&color=ff69b4)](https://github.com/TechForAll1373/The-Ultimate-Linux-Compendium/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/TechForAll1373/The-Ultimate-Linux-Compendium?style=for-the-badge&logo=github&logoColor=white&label=Forks&color=00bfff)](https://github.com/TechForAll1373/The-Ultimate-Linux-Compendium/network)
-[![GitHub issues](https://img.shields.io/github/issues/TechForAll1373/The-Ultimate-Linux-Compendium?style=for-the-badge&logo=github&logoColor=white&label=Issues&color=green)](https://github.com/TechForAll1373/The-Ultimate-Linux-Compendium/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-success?style=for-the-badge&logo=unlicense&logoColor=white)](https://opensource.org/licenses/MIT)
 
 A definitive, authoritative, and visually stunning masterclass in the world of Linux. This is your arsenal for exploring the vast ecosystem of distributions, desktops, software, and knowledge.
@@ -32,9 +30,7 @@ A military-grade, client-side password generator using the browser’s native Cr
 ## 🔗 Direct Project Links
 
 https://github.com/TechForAll1373/TacticalCipherForge  
-https://github.com/TechForAll1373/Nexus-Core-Stealth-Links  
-https://techforall1373.github.io/TacticalCipherForge  
-https://cafepersians.io  
+https://github.com/TechForAll1373/Nexus-Core-Stealth-Links 
 
 ---
 
