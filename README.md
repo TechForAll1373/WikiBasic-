@@ -304,18 +304,6 @@ https://tldr.sh/
 - [Resources](#resources)
 
 ---
-
-## 🐧 Linux Distributions
-
-| Distribution | Logo | Description |
-|--------------|------|-------------|
-| Ubuntu | ![Ubuntu](https://assets.ubuntu.com/v1/25553955-ubuntu-logo32.png) | Popular distribution based on Debian, known for ease of use |
-| Debian | ![Debian](https://www.debian.org/Pics/debian-logo-64x64.png) | One of the oldest Linux distributions, known for stability |
-| Fedora | ![Fedora](https://fedoraproject.org/static/logo/favicon.ico) | Community distribution sponsored by Red Hat |
-| Arch | ![Arch](https://archlinux.org/static/logos/archlinux-logo-dark-scalable.svg) | Simple, lightweight distribution following KISS principles |
-| openSUSE | ![openSUSE](https://www.opensuse.org/favicon.ico) | German-origin distribution with YaST configuration tool |
-| Red Hat | ![Red Hat](https://www.redhat.com/cms/assets/logo/red-hat-logo-2.svg) | Enterprise-focused distribution |
-
 ---
 
 ## 📁 File Management
