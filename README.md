@@ -963,6 +963,49 @@ This reference architecture provides a **complete, field-tested, and future-awar
 ```
 
 
+```sh
+# 🔒 WireGuard (wg-quick)
+sudo xbps-install -S wireguard-tools
+sudo install -m600 ~/wg0.conf /etc/wireguard/wg0.conf
+echo 'INTERFACES="wg0"' | sudo tee /etc/sv/wg-quick/conf >/dev/null
+sudo ln -s /etc/sv/wg-quick /var/service && sudo sv up wg-quick
+
+# 🛡️ OpenVPN
+sudo xbps-install -S openvpn openresolv
+sudo install -m600 ~/my.ovpn /etc/openvpn/client.conf
+printf "USER\nPASS\n" | sudo tee /etc/openvpn/auth >/dev/null && sudo chmod 600 /etc/openvpn/auth
+echo 'auth-user-pass /etc/openvpn/auth' | sudo tee -a /etc/openvpn/client.conf >/dev/null
+sudo ln -s /etc/sv/openvpn /var/service && sudo sv up openvpn
+
+# 🔗 OpenConnect (AnyConnect / GlobalProtect / Pulse) — Custom runit service
+sudo xbps-install -S openconnect vpnc-scripts
+sudo mkdir -p /etc/sv/openconnect
+sudo tee /etc/sv/openconnect/run >/dev/null <<'EOF'
+#!/bin/sh
+exec 2>&1
+[ -f /etc/sv/openconnect/conf ] && . /etc/sv/openconnect/conf
+exec openconnect --protocol="${PROTO:-anyconnect}" "$HOST" -u "$USER" --script /usr/share/vpnc-scripts/vpnc-script --passwd-on-stdin < /etc/sv/openconnect/pass
+EOF
+sudo chmod +x /etc/sv/openconnect/run
+sudo sh -c 'printf "%s\n" "HOST=vpn.example.com" "USER=USER" "PROTO=anyconnect" > /etc/sv/openconnect/conf'
+sudo sh -c 'echo "PASSWORD" > /etc/sv/openconnect/pass && chmod 600 /etc/sv/openconnect/pass'
+sudo ln -s /etc/sv/openconnect /var/service && sudo sv up openconnect
+
+# 🔐 IKEv2/IPsec (strongSwan)
+sudo xbps-install -S strongswan
+sudo ln -s /etc/sv/strongswan /var/service && sudo sv up strongswan
+# Auto-connect: In ipsec.conf, set auto=start, or in swanctl.conf, set start_action=start
+# sudo swanctl --load-all && sudo swanctl --initiate --child <child>
+# OR: sudo ipsec restart && sudo ipsec up <conn>
+
+# 🦊 Tailscale
+sudo xbps-install -S tailscale
+sudo ln -s /etc/sv/tailscaled /var/service && sudo sv up tailscaled
+sudo tailscale up
+
+# 🧪 Quick connectivity test
+curl -4s https://ifconfig.co || curl -s ipinfo.io/ip
+
 ## ⭐ Support
 
 If you find this repository useful, please consider giving it a star ⭐
@@ -971,28 +1014,10 @@ If you find this repository useful, please consider giving it a star ⭐
 
 *Made with ❤️ for the Linux community*
 
-
-
-
-
-
-
-
 ## 🤝 Contributing
 
 Open issues or pull requests at:  
 https://github.com/TechForAll1373/The-Ultimate-Linux-Compendium
 
----
 
-## 📄 License
-
-MIT License — see [LICENSE](LICENSE)
-
----
-
-<div align="center">
-Crafted with immense passion and an obsession for quality. ⚡  
-Empowering the next generation of Linux masters—since day zero.
-</div>
 ```
